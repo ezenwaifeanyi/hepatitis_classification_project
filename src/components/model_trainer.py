@@ -46,8 +46,38 @@ class ModelTrainer:
                 "Logistic Regression": LogisticRegression()
             }
 
+            params = {
+                
+                "Random Forest Classifier":{
+                    'n_estimators': [100, 200, 300],          # Number of trees
+                    'max_features': ['sqrt'],
+                    'max_depth': [None, 5, 10, 15],            # Maximum depth of trees
+                    #'min_samples_leaf': [1, 2, 4],             # Minimum number of samples required at each leaf node
+                },
+                "Random Forest Regressor":{
+                    'n_estimators': [100, 200, 300],          # Number of trees
+                    'max_depth': [None, 5, 10, 15],            # Maximum depth of trees
+                    'max_features': ['sqrt']
+                    #'min_samples_split': [2, 5, 10],           # Minimum number of samples required to split a node
+                    #'min_samples_leaf': [1, 2, 4],             # Minimum number of samples required at each leaf node
 
-            model_report:dict=evaluate_model(X_train=X_train,y_train=y_train,X_test=X_test,y_test=y_test,models=models)
+                },
+                "K-Neighbors Classifier":{
+                    'n_neighbors': [3, 5, 7],             # Number of neighbors to consider
+                    'weights': ['uniform', 'distance'],   # Weight function used in prediction
+                    #'algorithm': ['auto', 'ball_tree', 'kd_tree', 'brute'],   # Algorithm used to compute nearest neighbors
+                    'leaf_size': [20, 30, 40],             # Leaf size passed to BallTree or KDTree
+                },
+                "Logistic Regression":{
+                    'C': [0.1, 1.0, 10.0],                   # Inverse of regularization strength
+                    'solver': ['liblinear']          # Algorithm to use in the optimization problem
+
+                }
+                
+            }
+
+
+            model_report:dict=evaluate_model(X_train=X_train,y_train=y_train,X_test=X_test,y_test=y_test,models=models,param=params)
 
             ## To get the best model score from dict
             best_model_score = max(sorted(model_report.values()))
