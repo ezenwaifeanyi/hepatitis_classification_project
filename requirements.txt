@@ -6,4 +6,5 @@ scikit-learn
 flask
 scipy
 dill
+Flask
 #-e .

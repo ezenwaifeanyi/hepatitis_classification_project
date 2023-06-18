@@ -1,0 +1,108 @@
+<html>
+
+<body>
+    <div class="login">
+        <h1>Hepatitis Classification</h1>
+
+        <form action="{{ url_for('predict_datapoint')}}" method="post">
+            <h1>
+                <legend>Hapatitis desease prediction</legend>
+            </h1>
+            <div class="mb-3">
+                <label class="form-label">Gender</label>
+                <select class="form-control" name="Sex" placeholder="Enter you Gender" required>
+                    <option class="placeholder" selected disabled value="">Select your Gender</option>
+                    <option value="male">
+                        male
+                    </option>
+                    <option value="female">
+                        female
+                    </option>
+                </select>
+            </div>
+
+
+            <div class="mb-3">
+                <label class="form-label">Age</label>
+                <input class="form-control" type="number" name="Age" placeholder="Enter age" min='0' max='150' />
+            </div>
+
+
+            <div class="mb-3">
+                <label class="form-label">Albumin</label>
+                <input class="form-control" type="number" name="ALB" step="0.01" placeholder="Enter Albumin level"
+                    min='0' max='200' />
+            </div>
+
+
+            <div class="mb-3">
+                <label class="form-label">Alkaline phosphatase level</label>
+                <input class="form-control" type="number" name="ALP" step="0.01" placeholder="Enter Alkaline level"
+                    min='0' max='200' />
+            </div>
+
+
+
+            <div class="mb-3">
+                <label class="form-label">Alanine Transaminase: </label>
+                <input class="form-control" type="number" name="ALT" step="0.01" placeholder="Enter Alkaline level"
+                    min='0' max='200' />
+            </div>
+
+
+
+
+            <div class="mb-3">
+                <label class="form-label">Aspartate Aminotransferase</label>
+                <input class="form-control" type="number" name="AST" step="0.01"
+                    placeholder="Aspartate Aminotransferase level" min='0' max='200' />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Bil/i</label>
+                <input class="form-control" type="number" name="BIL" step="0.01" placeholder="Enter Bil level" min='0'
+                    max='200' />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Cholinesterase</label>
+                <input class="form-control" type="number" name="CHE" step="0.01"
+                    placeholder="Enter Cholinesterase level" min='0' max='200' />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Cholesterol</label>
+                <input class="form-control" type="number" name="CHOL" step="0.01" placeholder="Enter Cholesterol level"
+                    min='0' max='200' />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Creatinine</label>
+                <input class="form-control" type="number" name="CREA" step="0.01" placeholder="Enter Creatinine level"
+                    min='0' max='2000' />
+            </div>
+
+
+            <div class="mb-3">
+                <label class="form-label">Gamma-glutamyl transferase</label>
+                <input class="form-control" type="number" name="GGT" step="0.01"
+                    placeholder="Enter Gamma-glutamyl transferase level" min='0' max='1000' />
+            </div>
+
+
+            <div class="mb-3">
+                <label class="form-label">Proto</label>
+                <input class="form-control" type="number" name="PROT" step="0.01" placeholder="Enter your Reading Score"
+                    min='0' max='100' />
+            </div>
+            <div class="mb-3">
+                <input class="btn btn-primary" type="submit" value="Categorize your prediction" required />
+            </div>
+        </form>
+        <h2>
+            THE prediction is {{results}}
+        </h2>
+
+        <body>
+
+</html>
